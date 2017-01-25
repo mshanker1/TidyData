@@ -14,9 +14,8 @@ summarise(CS,ACT=mean(ACTCM25,na.rm=T)) # summarize by variable
 
 # Using group_by funtions
 by_state <- group_by(CS,STABBR)
-acts <- summarise(by_state,count= n(),
-                  +                   MACT = mean(ACTCM25,na.rm=T),
-                  +                   MSAT = mean(SATVR25,na.rm=T))
+acts <- summarise(by_state,count= n(),MACT = mean(ACTCM25,na.rm=T),
+                  MSAT = mean(SATVR25,na.rm=T))
 sacts <- filter(acts,MACT>20 & MSAT > 300)
 
 # Chaining:  dplyr provides the %>% operator. x %>% f(y) turns into f(x, y) so 
