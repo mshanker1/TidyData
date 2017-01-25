@@ -4,6 +4,7 @@ download.file(fileURL,destfile = "CollegeData.csv",method = "auto")
 list.files(".")
 # The csv contains both NULL values and privacysuppressed designations in numeric fields
 CollegeScorecard <- read.csv("CollegeData.csv",na.strings = c("NULL","PrivacySuppressed"))
+library(tibble)
 CS <- tbl_df(CollegeScorecard) #allows for better printing compared to a dataframe
 dim(CS)
 library(dplyr) # useful library for manipulating data
